@@ -9,9 +9,13 @@
 javascript:fetch('https://raw.githubusercontent.com/xfgryujk/weibo-img-crypto/master/weibo-img-crypto.js').then(res => res.text(), e => alert('载入失败：' + e)).then(res => {let script = document.createElement('script'); script.innerHTML = res; document.body.appendChild(script)})
 ```
 
+```
 npm install
 npm run dev
+
+```
 ```javascript
+//on console
 let script = document.createElement('script'); script.src = 'http://localhost:8080/weibo-img-crypto.js'; document.body.appendChild(script)
 ```
 
