@@ -12,7 +12,6 @@ javascript:fetch('https://raw.githubusercontent.com/xfgryujk/weibo-img-crypto/ma
 ```
 npm install
 npm run dev
-
 ```
 ```javascript
 //on console
