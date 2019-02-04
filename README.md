@@ -9,6 +9,12 @@
 javascript:fetch('https://raw.githubusercontent.com/xfgryujk/weibo-img-crypto/master/weibo-img-crypto.js').then(res => res.text(), e => alert('载入失败：' + e)).then(res => {let script = document.createElement('script'); script.innerHTML = res; document.body.appendChild(script)})
 ```
 
+npm install
+npm run dev
+```javascript
+let script = document.createElement('script'); script.src = 'http://localhost:8080/weibo-img-crypto.js'; document.body.appendChild(script)
+```
+
 也可以按 `Ctrl + Shift + J` 打开控制台，在控制台输入。也可以将这些代码作为网址添加到书签/收藏夹，能更快使用
 
 ### 方法 2，适合长期使用
