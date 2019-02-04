@@ -22,7 +22,7 @@
           </el-form>
         </el-tab-pane>
 
-        <el-tab-pane label="高级">
+        <el-tab-pane label="Custom Crypt Key">
           <el-form label-width="100px">
             <el-form-item label="算法">
               <el-select v-model="form.codecName" placeholder="无">
@@ -31,7 +31,7 @@
                 <el-option label="随机移动8x8像素块" value="Move8x8BlockCodec"></el-option>
               </el-select>
             </el-form-item>
-            <el-form-item label="随机种子">
+            <el-form-item label="Current crypt key seed">
               <el-input v-model="form.randomSeed"></el-input>
             </el-form-item>
             <el-form-item label="解密后处理">
