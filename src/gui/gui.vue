@@ -44,7 +44,7 @@
           </el-form>
         </el-tab-pane>
 
-        <el-tab-pane label="选择图片">
+        <el-tab-pane label="Select image">
           <select-img></select-img>
         </el-tab-pane>
 
@@ -79,6 +79,7 @@ import {getConfig, setConfig} from '../config'
 import SelectImg from './select-img'
 
 export default {
+  name: 'gui',
   components: {
     SelectImg
   },
@@ -99,6 +100,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>
