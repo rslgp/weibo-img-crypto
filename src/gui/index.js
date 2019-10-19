@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Gui from './gui'
+import Gui from './select-img'
 
 export function initGui () {
   addButton()

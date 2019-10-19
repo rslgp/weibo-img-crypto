@@ -19,12 +19,12 @@ export async function decrypt (originImg) {
   try {
     img = await loadImage(getImgSrcToDecrypt(originImg), true)
   } catch (e) {
-    Notification.error({
+    /*Notification.error({
       title: '解密图片',
       message: '载入图片失败，可能是跨域问题？',
       position: 'bottom-left',
       duration: 3000
-    })
+    })*/
     return ''
   }
   return doCodecCommon(img, imgData => {

@@ -1,35 +1,45 @@
 <template>
-  <div>
-    <p class="mb">这个功能是用来从微博之外选择图片加解密的</p>
-    <el-form label-width="100px">
-      <el-form-item label="Encryption mode on:">
-        <el-switch v-model="isEncryption" active-text="加密" inactive-text="解密"></el-switch>
-      </el-form-item>
-      <el-form-item label="粘贴图片">
-        <el-input @paste.native.prevent="onPaste" placeholder="也可以在此处粘贴图片"></el-input>
-      </el-form-item>
-      <el-form-item label="Select Image">
-        <el-upload action="" drag multiple list-type="picture" :file-list="fileList" :before-upload="onUpload" :on-remove="onRemove" :on-preview="onPreview">
-          <i class="el-icon-upload"></i>
-          <div class="el-upload__text">Drag files here or <em>click to select</em></div>
-        </el-upload>
-      </el-form-item>
-    </el-form>
+  <div>
+	<meta name="viewport" content="width=device-width, initial-scale=0.86, maximum-scale=3.0">
+   
+	  <el-form>
+		<el-form-item label="Current crypt key seed">
+		  <el-input v-model="form.randomSeed"></el-input>
+			<el-button type="primary" @click="onOk">Change Key</el-button>
+		</el-form-item>
+	  </el-form>	  
 
-    <el-dialog :title="largeImgTitle" :visible.sync="largeImgVisible" append-to-body>
-      <a href="#" @click.prevent="onClickLargeImg">
-        <img class="image" :src="largeImgUrl">
-      </a>
-    </el-dialog>
-  </div>
+	<el-form>
+      <el-form-item label="Encryption mode on:">
+        <el-switch v-model="isEncryption" active-text="encrypt" inactive-text="decrypt"></el-switch>
+      </el-form-item>
+      <el-form-item label="Paste picture">
+        <el-input @paste.native.prevent="onPaste" placeholder="You can also paste the image here"></el-input>
+      </el-form-item>
+      <el-form-item label="Select Image">
+        <el-upload action="" drag multiple list-type="picture" :file-list="fileList" :before-upload="onUpload" :on-remove="onRemove" :on-preview="onPreview">
+          <i class="el-icon-upload"></i>
+          <div class="el-upload__text">Drag files here or <em>click to select</em></div>
+        </el-upload>
+      </el-form-item>
+    </el-form>
+
+    <el-dialog :title="largeImgTitle" :visible.sync="largeImgVisible" append-to-body>
+      <a href="#" @click.prevent="onClickLargeImg">
+        <img class="image" :src="largeImgUrl">
+      </a>
+    </el-dialog>
+  </div>
 </template>
 
 <script>
 import {encrypt, decrypt} from '../codec'
+import {getConfig, setConfig} from '../config'
 
 export default {
   data () {
     return {
+      form: getConfig(),
       isEncryption: true,
       fileList: [],
       largeImgTitle: '',
@@ -46,6 +56,9 @@ export default {
           this.handleFile(file)
         }
       }
+    },
+    onOk () {
+      setConfig(this.form)
     },
     onUpload (file) {
       this.handleFile(file)
@@ -109,5 +122,8 @@ export default {
 
 .image {
   width: 100%;
+}
+.el-input {
+  width: 250px !important;
 }
 </style>

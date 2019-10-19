@@ -27,11 +27,12 @@ async function hookUpload () {
       break
     } catch (e) {
       if (retryCount++ > 10) {
+		  /*
         Notification.error({
           title: '初始化',
           message: 'Hook上传函数失败，可能当前页面不是微博主页？' + e,
           position: 'bottom-left'
-        })
+        })*/
         return
       }
       await sleep(500)
